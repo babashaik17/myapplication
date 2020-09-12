@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Studentloan</string>
+    <string name="sign_in">SignIn</string>
+    <string name="logi_in">Login</string>
+    <string name="heading">Welcome</string>
+    <string name="description">Get An InstantLoan for Students</string>
+    <string name="login">Login</string>
+    <string name="user_name">User Name</string>
+    <string name="password">Enter Password</string>
+    <string name="Remember_me">Remember Me</string>
+    <string name="Forgetpassword">FORGET PASSWORD</string>
+    <string name="Createaccount">CREATE ACCOUNT</string>
+    <string name="otp_code_text">Co\nde</string>
+    <string name="otp_verification_text">Verification</string>
+    <string name="otp_description_text">Enter one Time Password </string>
+    <string name="forget_password_detail">provide your account\'s email for which you want to reset your password!</string>
+    <string name="next_butn">NEXT</string>
+    <string name="make_selection">Make Selection</string>
+    <string name="via_sms">Via SMS</string>
+    <string name="password_updated">Password Updated</string>
+    <string name="via_email">Via Email</string>
+    <string name="new_creditial">New Credentials</string>
+    <string name="passeord_updated_success">Password Updated Successfully</string>
+    <string name="new_credential_detail">Your identity has been verified set your New Password</string>
+    <string name="make_selectiom_detail">Select which contact detail should we use to reset your Password</string>
+</resources>

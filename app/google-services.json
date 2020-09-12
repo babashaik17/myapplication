@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "360603811997",
+    "firebase_url": "https://student-4d9d6.firebaseio.com",
+    "project_id": "student-4d9d6",
+    "storage_bucket": "student-4d9d6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:360603811997:android:fc03e0e6d00ccb52565474",
+        "android_client_info": {
+          "package_name": "com.e.studentloan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "360603811997-nmcvu1i8duvd86sadrikatl8116easf8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.e.studentloan",
+            "certificate_hash": "4bdbcf1cec1403a7aa7b174a975df7b73e7fdd67"
+          }
+        },
+        {
+          "client_id": "360603811997-10dl9m472v4i0nd0fq36gnustdaj3bcr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbwwd-8hLCTMyy3WEDHGV97uo310uB6Mo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "360603811997-10dl9m472v4i0nd0fq36gnustdaj3bcr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
