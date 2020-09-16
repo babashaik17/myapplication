@@ -17,13 +17,11 @@ import com.hbb20.CountryCodePicker;
 
 public class SingnUp3rdclass extends AppCompatActivity {
 
-    TextInputLayout phonenumber,usename,fullname,password,date;
+    TextInputLayout phonenumber;
     ImageView backBtn;
     CountryCodePicker countryCodePicker;
-    Button next, login;
     //variables
     ScrollView scrollView;
-    TextView titletext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +31,7 @@ public class SingnUp3rdclass extends AppCompatActivity {
         scrollView = findViewById(R.id.singnup3rd_screen_scrollview);
         countryCodePicker=findViewById(R.id.country_code_picker);
         phonenumber = findViewById(R.id.singnup_phonenumber);
-        usename=findViewById(R.id.signup_username);
-        password=findViewById(R.id.signup_password);
-        fullname=findViewById(R.id.singnup_fullname);
+
 
 
     }
@@ -64,26 +60,28 @@ public class SingnUp3rdclass extends AppCompatActivity {
         }
         //validation succeeded and move to next screen to verify phone number and save data
         //get all values passed from previous screens using intent
-        String _fullName = getIntent().getStringExtra("fullName");
-        String _email = getIntent().getStringExtra("email");
+        String _fullname = getIntent().getStringExtra("fullName");
+        String _email= getIntent().getStringExtra("email");
         String _username = getIntent().getStringExtra("username");
         String _password = getIntent().getStringExtra("password");
-        String _date = getIntent().getStringExtra("date");
+        String _date= getIntent().getStringExtra("date");
         String _gender = getIntent().getStringExtra("gender");
         String _getUserEnteredPhoneNumber= phonenumber.getEditText().getText().toString().trim(); //get phone number
-        String _phoneNo = "+"+countryCodePicker.getFullNumber() +_getUserEnteredPhoneNumber;
+        String _phoneNoo = "+"+countryCodePicker.getFullNumber() +_getUserEnteredPhoneNumber;
 
         Intent intent = new Intent(getApplicationContext(),VerifyOTP.class);
 
-        intent.putExtra("fullName", _fullName);
+        intent.putExtra("fullName", _fullname);
         intent.putExtra("email", _email);
         intent.putExtra("username", _username);
         intent.putExtra("password", _password);
         intent.putExtra("date", _date);
         intent.putExtra("gender", _gender);
-        intent.putExtra("phoneNo", _phoneNo);
-        intent.putExtra("whatToDO", "createNewUser"); // This is to identify that which action should OTP perform after verification.
+        intent.putExtra("phoneNo", _phoneNoo);
+        // This is to identify that which action should OTP perform after verification.
         startActivity(intent);
+
+
 
     }
 }

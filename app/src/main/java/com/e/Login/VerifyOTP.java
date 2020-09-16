@@ -4,12 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.Databases.UserHelperclass;
+import com.Databases.UserHelperClass;
 import com.chaos.view.PinView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -18,7 +17,6 @@ import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DatabaseReference;
@@ -30,25 +28,31 @@ public class VerifyOTP extends AppCompatActivity {
     PinView pinFromUser;
     TextView otpdesription;
     String codeBysystem;
-    String fullName, phoneNo, email, username, password, date, gender, whatToDO;
+    String fullName, phoneNo, email, username,password, date, gender;
+    FirebaseDatabase database;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verify_o_t_p);
+        database=FirebaseDatabase.getInstance();
+        reference=database.getReference();
         //hooks
+
         pinFromUser = findViewById(R.id.pin_view);
         otpdesription = findViewById(R.id.otp_description);
         fullName = getIntent().getStringExtra("fullName");
         email = getIntent().getStringExtra("email");
-        username = getIntent().getStringExtra("username");
-        password = getIntent().getStringExtra("password");
-        date = getIntent().getStringExtra("date");
-        gender = getIntent().getStringExtra("gender");
-        phoneNo = getIntent().getStringExtra("phoneNo");
-        whatToDO = getIntent().getStringExtra("whatToDO");
+        username =getIntent().getStringExtra("username");
+        password =getIntent().getStringExtra("password");
+        date =getIntent().getStringExtra("date");
+        gender =getIntent().getStringExtra("gender");
+        phoneNo =getIntent().getStringExtra("phoneNo");
+
         otpdesription.setText("Enter One Time Password Sent On" + phoneNo);
         sendVerificationCodeToUser(phoneNo);
+
     }
 
     private void sendVerificationCodeToUser(String phoneNo) {
@@ -80,6 +84,8 @@ public class VerifyOTP extends AppCompatActivity {
                 @Override
                 public void onVerificationFailed(@NonNull FirebaseException e) {
                     Toast.makeText(VerifyOTP.this, "Verification Failed", Toast.LENGTH_SHORT).show();
+                    storeNewUsersData();
+
 
                 }
             };
@@ -97,7 +103,7 @@ public class VerifyOTP extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
 
-                            storeNewUsersData();
+                            Toast.makeText(VerifyOTP.this, "Verification Completed", Toast.LENGTH_SHORT).show();
 
                         } else {
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
@@ -111,10 +117,10 @@ public class VerifyOTP extends AppCompatActivity {
     }
 
     private void storeNewUsersData() {
-        FirebaseDatabase  rootNode=FirebaseDatabase.getInstance();
-        DatabaseReference reference=rootNode.getReference("users");
-        UserHelperclass addNewUser=new UserHelperclass(fullName,username,email,phoneNo,gender,date,password);
-        reference.setValue(addNewUser);
+        FirebaseDatabase  database=FirebaseDatabase.getInstance();
+        DatabaseReference reference=database.getReference("Users");
+        UserHelperClass addNewUser=new UserHelperClass(fullName,username,email,password,gender,date,phoneNo);
+        reference.child("phoneNo").setValue(addNewUser);
 
     }
 

@@ -21,7 +21,7 @@ public class SingnUp extends AppCompatActivity {
     Button next;
     TextView titletext;
     //get data variables
-    TextInputLayout fullname, username, email, password;
+    TextInputLayout fullName, username, email, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +32,11 @@ public class SingnUp extends AppCompatActivity {
         titletext = findViewById(R.id.signup_title_text);
 
         //Hooks for getting data
-        fullname = findViewById(R.id.singnup_fullname);
+        fullName = findViewById(R.id.singnup_fullname);
         username = findViewById(R.id.signup_username);
         email = findViewById(R.id.singnup_email);
         password = findViewById(R.id.signup_password);
+
     }
 
 
@@ -53,13 +54,13 @@ public class SingnUp extends AppCompatActivity {
 
      */
     private boolean validateFullName() {
-        String val = fullname.getEditText().getText().toString().trim();
+        String val = fullName.getEditText().getText().toString().trim();
         if (val.isEmpty()) {
-            fullname.setError("Field cannot be empty");
+            fullName.setError("Field cannot be empty");
             return false;
         } else {
-            fullname.setError(null);
-            fullname.setErrorEnabled(false);
+            fullName.setError(null);
+            fullName.setErrorEnabled(false);
             return true;
         }
     }
@@ -125,5 +126,7 @@ public class SingnUp extends AppCompatActivity {
 
 
     public void callLoginFromSingnUp(View view) {
+        Intent intent=new Intent(this,Login.class);
+        startActivity(intent);
     }
 }

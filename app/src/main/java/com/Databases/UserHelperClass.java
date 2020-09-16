@@ -1,17 +1,18 @@
 package com.Databases;
 
-public class UserHelperclass {
-    String fullName,username,email,phoneNo,gender,data,password;
-    public UserHelperclass(){}
+public class UserHelperClass {
+    String fullName,username,email,password,gender,date,phoneNo;
 
-    public UserHelperclass(String fullName, String username, String email, String phoneNo, String gender, String data, String password) {
+   public UserHelperClass(){}
+
+    public UserHelperClass(String fullName, String username, String email, String password, String gender, String date, String phoneNo) {
         this.fullName = fullName;
         this.username = username;
         this.email = email;
-        this.phoneNo = phoneNo;
-        this.gender = gender;
-        this.data = data;
         this.password = password;
+        this.gender = gender;
+        this.date = date;
+        this.phoneNo = phoneNo;
     }
 
     public String getFullName() {
@@ -38,12 +39,12 @@ public class UserHelperclass {
         this.email = email;
     }
 
-    public String getPhoneNo() {
-        return phoneNo;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPhoneNo(String phoneNo) {
-        this.phoneNo = phoneNo;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getGender() {
@@ -54,19 +55,19 @@ public class UserHelperclass {
         this.gender = gender;
     }
 
-    public String getData() {
-        return data;
+    public String getDate() {
+        return date;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPhoneNo() {
+        return phoneNo;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
     }
 }
